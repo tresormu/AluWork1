@@ -136,28 +136,69 @@
 
     <script src="../theme.js"></script>
     <script>
-        // ── Popup dismiss logic ──
+        var isMobile = window.innerWidth <= 768 || /Mobi|Android|iPhone|iPad|iPod/i.test(navigator.userAgent);
+
+        // ── Popup: different message on mobile ──
         (function () {
             var overlay = document.getElementById('vid-tip');
             if (!overlay) return;
 
+            if (isMobile) {
+                document.getElementById('popup-title').textContent = 'Tap to Watch';
+                overlay.querySelector('.popup-card p').innerHTML =
+                    'Tap the <strong>play button</strong> on any video to watch it in fullscreen — the best experience on your phone.';
+                // Swap icon to a phone/play icon
+                overlay.querySelector('.popup-icon-ring').innerHTML =
+                    '<svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polygon points="5 3 19 12 5 21 5 3"></polygon></svg>';
+                document.getElementById('popup-ok').textContent = 'Got it ✓';
+            }
+
             function closePopup() {
                 overlay.classList.add('popup-hide');
-                // Remove from DOM after animation completes
                 setTimeout(function () { overlay.remove(); }, 280);
             }
 
             document.getElementById('popup-ok').addEventListener('click', closePopup);
             document.getElementById('popup-close').addEventListener('click', closePopup);
+            overlay.addEventListener('click', function (e) { if (e.target === overlay) closePopup(); });
+            document.addEventListener('keydown', function (e) { if (e.key === 'Escape') closePopup(); });
+        })();
 
-            // Click backdrop to dismiss
-            overlay.addEventListener('click', function (e) {
-                if (e.target === overlay) closePopup();
-            });
+        // ── Mobile: tap-to-fullscreen overlay ──
+        (function () {
+            if (!isMobile) return;
 
-            // Keyboard: Escape to dismiss
-            document.addEventListener('keydown', function (e) {
-                if (e.key === 'Escape') closePopup();
+            document.querySelectorAll('.v-ratio').forEach(function (wrap) {
+                var iframe = wrap.querySelector('iframe');
+                if (!iframe) return;
+
+                var btn = document.createElement('button');
+                btn.className = 'mob-play';
+                btn.setAttribute('aria-label', 'Play video fullscreen');
+                btn.innerHTML = '<span class="mob-play-icon">&#9654;</span>';
+                wrap.appendChild(btn);
+
+                btn.addEventListener('click', function () {
+                    // Try native fullscreen on the iframe
+                    var fs = iframe.requestFullscreen || iframe.webkitRequestFullscreen ||
+                             iframe.mozRequestFullScreen || iframe.msRequestFullscreen;
+                    if (fs) {
+                        try {
+                            var p = fs.call(iframe);
+                            if (p && p.catch) {
+                                p.catch(function () {
+                                    // Blocked (iOS) — open Drive link in new tab
+                                    window.open(iframe.src.replace('/preview', '/view'), '_blank');
+                                });
+                            }
+                        } catch (e) {
+                            window.open(iframe.src.replace('/preview', '/view'), '_blank');
+                        }
+                    } else {
+                        // No fullscreen API — open in new tab
+                        window.open(iframe.src.replace('/preview', '/view'), '_blank');
+                    }
+                });
             });
         })();
     </script>
