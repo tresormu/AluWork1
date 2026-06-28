@@ -67,28 +67,13 @@
     color: var(--text2); line-height: 1.9; font-weight: 300;
 }
 
-/* Mobile play-button overlay (injected by JS on small screens) */
-.mob-play {
-    position: absolute; inset: 0;
-    background: rgba(0, 0, 0, 0.32);
-    border: none; cursor: pointer;
-    display: flex; align-items: center; justify-content: center;
-    z-index: 4;
-    transition: background 0.2s;
-    border-radius: inherit;
+/* YouTube Shorts (9:16 vertical) */
+.v-short {
+    aspect-ratio: 9 / 16;
+    height: clamp(300px, 55vh, 460px);
+    width: auto;
+    max-width: 100%;
 }
-.mob-play:active { background: rgba(0, 0, 0, 0.52); }
-.mob-play-icon {
-    width: 64px; height: 64px; border-radius: 50%;
-    background: var(--accent);
-    display: flex; align-items: center; justify-content: center;
-    color: #fff; font-size: 26px;
-    padding-left: 4px; /* visually centre the triangle */
-    box-shadow: 0 6px 28px rgba(255, 1, 79, 0.55);
-    pointer-events: none;
-    transition: transform 0.15s;
-}
-.mob-play:active .mob-play-icon { transform: scale(0.92); }
 
 /* ── RESPONSIVE ── */
 @media (max-width: 900px) {
