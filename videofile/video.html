@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Videos — Lumen</title>
+    <script>(function(){var t=localStorage.getItem('lumen-theme')||'dark';document.documentElement.setAttribute('data-theme',t);})();</script>
+    <link rel="stylesheet" href="../shared.css">
+    <link rel="stylesheet" href="video.css">
+</head>
+<body>
+
+    <!-- ── FULLSCREEN TIP POPUP ── -->
+    <div class="popup-overlay" id="vid-tip" role="dialog" aria-modal="true" aria-labelledby="popup-title">
+        <div class="popup-card">
+            <button class="popup-close-btn" id="popup-close" aria-label="Close">&times;</button>
+            <div class="popup-icon-ring">
+                <!-- Fullscreen / expand icon -->
+                <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24"
+                     fill="none" stroke="currentColor" stroke-width="2.2"
+                     stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                    <polyline points="15 3 21 3 21 9"></polyline>
+                    <polyline points="9 21 3 21 3 15"></polyline>
+                    <line x1="21" y1="3" x2="14" y2="10"></line>
+                    <line x1="3" y1="21" x2="10" y2="14"></line>
+                </svg>
+            </div>
+            <h3 id="popup-title">Better in Fullscreen</h3>
+            <p>Tap the <strong>fullscreen icon</strong> on any video for the best viewing experience — especially on mobile.</p>
+            <button class="popup-action-btn" id="popup-ok">Got it ✓</button>
+        </div>
+    </div>
+
+    <header role="banner">
+        <a href="../index.html" class="Logo">Lumen<span>-alu</span></a>
+        <nav id="main-nav">
+            <ul>
+                <li><a href="../team/teammembers.html">Team Members</a></li>
+                <li><a href="video.html" class="active">Video</a></li>
+                <li><a href="../solution/solution.html">Solutions</a></li>
+                <li><a href="../contacts/contacts.html">Contacts</a></li>
+            </ul>
+        </nav>
+        <div class="header-actions">
+            <button class="theme-toggle" aria-label="Toggle theme" title="Toggle light/dark mode"></button>
+            <button class="hamburger" aria-label="Toggle navigation" aria-expanded="false">
+                <span></span><span></span><span></span>
+            </button>
+        </div>
+    </header>
+
+    <div class="page-hero">
+        <span class="eyebrow">Our Challenges</span>
+        <h1>Watch Our <span>Story</span></h1>
+        <p class="page-sub">Four challenges, four milestones — documenting our journey from introduction to community impact.</p>
+    </div>
+
+    <article class="video-entry">
+        <div class="v-media">
+            <iframe src="https://drive.google.com/file/d/1e7tKDc4yLgJaQ4sLUJNkEv3uCy_aDhrW/preview"
+                allow="autoplay" allowfullscreen title="Challenge 01 — The Lumen Team Presentation"></iframe>
+        </div>
+        <div class="v-info">
+            <span class="v-num">Challenge 01</span>
+            <h2>The Lumen Team Presentation</h2>
+            <p>For the launch of our challenges, this video introduces the members of the Lumen-alu group — our backgrounds, our motivations, and the shared vision that brought us together.</p>
+        </div>
+    </article>
+
+    <article class="video-entry flip">
+        <div class="v-media">
+            <iframe src="https://drive.google.com/file/d/1YcApNriG9CSQ4NKyi0w3Y1y_1YvFjyMS/preview"
+                allow="autoplay" allowfullscreen title="Challenge 02 — The Hadzabe People of Tanzania"></iframe>
+        </div>
+        <div class="v-info">
+            <span class="v-num">Challenge 02</span>
+            <h2>The Hadzabe People of Tanzania</h2>
+            <p>Made as part of our exploration of African cultures, we researched the Hadzabe of Tanzania — a community near Lake Eyasi who continue to live as their ancestors did thousands of years ago.</p>
+        </div>
+    </article>
+
+    <article class="video-entry">
+        <div class="v-media">
+            <iframe src="https://drive.google.com/file/d/1KLnfLI4oZpG5DatQRvorlHk64K5CxxMO/preview"
+                allow="autoplay" allowfullscreen title="Challenge 03 — Helplab School Volunteering"></iframe>
+        </div>
+        <div class="v-info">
+            <span class="v-num">Challenge 03</span>
+            <h2>Helplab — School Volunteering</h2>
+            <p>For our community service challenge, we visited a local primary school and ran a quiz activity with students — a small but meaningful contribution to the next generation.</p>
+        </div>
+    </article>
+
+    <article class="video-entry flip">
+        <div class="v-media">
+            <iframe src="https://drive.google.com/file/d/1X2ITZ_R01L2ChE7uiyWdi-6ouuBu4cDX/preview"
+                allow="autoplay" allowfullscreen title="Challenge 04 — Interview at Bakhresa"></iframe>
+        </div>
+        <div class="v-info">
+            <span class="v-num">Challenge 04</span>
+            <h2>Interview at Bakhresa</h2>
+            <p>An interview conducted at Bakhresa as part of our research into institutions actively creating direct and indirect employment — feeding directly into our solutions framework.</p>
+        </div>
+    </article>
+
+    <footer class="site-footer">
+        <div class="footer-grid">
+            <div class="footer-brand">
+                <a href="../index.html" class="Logo">Lumen<span>-alu</span></a>
+                <p class="footer-tagline">Fighting youth unemployment in Kiruhura, Uganda through research and innovation.</p>
+            </div>
+            <div class="footer-col">
+                <h4>Navigate</h4>
+                <ul>
+                    <li><a href="../index.html">Home</a></li>
+                    <li><a href="../team/teammembers.html">Team Members</a></li>
+                    <li><a href="video.html">Video</a></li>
+                    <li><a href="../solution/solution.html">Solutions</a></li>
+                    <li><a href="../contacts/contacts.html">Contact</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="footer-base">
+            <p>&copy; 2026 Lumen-alu. All rights reserved.</p>
+            <a href="mailto:lumenalu26@gmail.com">lumenalu26@gmail.com</a>
+        </div>
+    </footer>
+
+    <script src="../theme.js"></script>
+    <script>
+        // ── Popup dismiss logic ──
+        (function () {
+            var overlay = document.getElementById('vid-tip');
+            if (!overlay) return;
+
+            function closePopup() {
+                overlay.classList.add('popup-hide');
+                // Remove from DOM after animation completes
+                setTimeout(function () { overlay.remove(); }, 280);
+            }
+
+            document.getElementById('popup-ok').addEventListener('click', closePopup);
+            document.getElementById('popup-close').addEventListener('click', closePopup);
+
+            // Click backdrop to dismiss
+            overlay.addEventListener('click', function (e) {
+                if (e.target === overlay) closePopup();
+            });
+
+            // Keyboard: Escape to dismiss
+            document.addEventListener('keydown', function (e) {
+                if (e.key === 'Escape') closePopup();
+            });
+        })();
+    </script>
+</body>
+</html>
