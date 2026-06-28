@@ -18,20 +18,27 @@
     padding: clamp(24px, 3vw, 48px);
     background: var(--surface-2);
 }
-.v-media video,
-.v-media iframe {
-    width: 100%;
-    height: clamp(180px, 38vh, 400px);
-    max-width: 640px;
-    display: block;
+
+/* Aspect-ratio wrapper — keeps 16:9 at every size */
+.v-ratio {
+    width: 100%; max-width: 640px;
+    position: relative;
+    aspect-ratio: 16 / 9;
     border-radius: 10px;
+    overflow: hidden;
     box-shadow: 0 16px 40px rgba(0,0,0,.45);
-    border: none;
     background: #000;
 }
-[data-theme="light"] .v-media video,
-[data-theme="light"] .v-media iframe {
+[data-theme="light"] .v-ratio {
     box-shadow: 0 8px 24px rgba(0,0,0,.15);
+}
+.v-ratio video,
+.v-ratio iframe {
+    position: absolute;
+    inset: 0;
+    width: 100%; height: 100%;
+    border: none;
+    display: block;
 }
 
 /* Info side */
@@ -69,17 +76,18 @@
     .video-entry,
     .video-entry.flip { flex-direction: column; }
 
-    .v-media { width: 100%; padding: 20px 20px 0; }
-    .v-media video,
-    .v-media iframe {
-        height: clamp(160px, 50vw, 300px);
+    .v-media {
+        width: 100%;
+        padding: 16px 16px 0;
+    }
+    .v-ratio {
+        max-width: 100%;
         border-radius: 8px;
     }
-
-    .v-info { padding: 28px 20px 36px; }
+    .v-info { padding: 24px 20px 36px; }
 }
 
 @media (max-width: 480px) {
-    .v-media { padding: 16px 16px 0; }
-    .v-info { padding: 24px 16px 32px; }
+    .v-media  { padding: 12px 12px 0; }
+    .v-info   { padding: 20px 16px 32px; }
 }
